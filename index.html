@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>エイジェック スポーツ科学センター | 科学で導く、あなたの最高のパフォーマンス</title>
+<meta name="description" content="スポーツ科学に基づいた体力解析・動作解析・トレーニング指導。アスリートから一般の方まで、目的に合わせた科学的アプローチでサポートします。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== Top bar (英字ライン) ===== -->
+<div class="topbar">
+  <a href="contact.html">CONTACT</a>
+  <a href="access.html">ACCESS</a>
+  <a href="news.html">NEWS</a>
+</div>
+
+<!-- ===== Header ===== -->
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <span class="logo-mark">SSC</span>
+      <span>スポーツ科学センター</span>
+    </a>
+    <button class="menu-toggle" aria-label="メニュー" onclick="toggleMenu()">☰</button>
+    <nav class="nav" id="nav">
+      <a href="index.html#services">サービス</a>
+      <a href="arrows.html">アローズ</a>
+      <a href="facility.html">施設案内</a>
+      <a href="pricing.html">料金表</a>
+      <a href="access.html">アクセス</a>
+      <a href="news.html">ニュース</a>
+      <a href="contact.html" class="cta">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Hero Slider ===== -->
+<section class="hero-slider" id="hero-slider">
+
+  <!-- Slide 1 -->
+  <div class="slide active">
+    <div class="slide-img img-ph">
+      <div class="ph-note">
+        <strong>Slide 1：センター外観 / メインビジュアル</strong>
+        <small>推奨：スポーツ科学センターの建物外観、または広々としたトレーニングスペース全景。横長16:9、明るく開放感のある写真。1920×900px推奨。</small>
+      </div>
+    </div>
+    <div class="slide-content">
+      <span class="eyebrow">SPORTS SCIENCE CENTER</span>
+      <h2>科学で導く、あなたの<br><span class="ac">最高のパフォーマンス</span></h2>
+      <p>最新の計測機器と専門スタッフによる体力解析・動作解析。<br>一般の方からアスリートまで、科学的アプローチでサポートします。</p>
+      <a href="#services" class="view-more white">VIEW SERVICES</a>
+    </div>
+  </div>
+
+  <!-- Slide 2 -->
+  <div class="slide">
+    <div class="slide-img img-ph">
+      <div class="ph-note">
+        <strong>Slide 2：動作解析の様子</strong>
+        <small>推奨：3Dモーションキャプチャ計測中のアスリート、複数カメラとマーカーが見える専門的な雰囲気の写真。横長16:9。</small>
+      </div>
+    </div>
+    <div class="slide-content">
+      <span class="eyebrow">MOTION ANALYSIS</span>
+      <h2>動きを<br><span class="ac">3次元で可視化</span></h2>
+      <p>ランニング・投球・ジャンプの動作を3次元で計測。<br>フォーム改善・怪我予防・パフォーマンス向上に直結します。</p>
+      <a href="service-motion.html" class="view-more white">動作解析を見る</a>
+    </div>
+  </div>
+
+  <!-- Slide 3 -->
+  <div class="slide">
+    <div class="slide-img img-ph">
+      <div class="ph-note">
+        <strong>Slide 3：トレーニング風景</strong>
+        <small>推奨：トレーナーが利用者をマンツーマン指導している風景、もしくはマシンエリアの広い空間写真。横長16:9。</small>
+      </div>
+    </div>
+    <div class="slide-content">
+      <span class="eyebrow">TRAINING GYM</span>
+      <h2>専門指導で<br><span class="ac">確かな成果へ</span></h2>
+      <p>測定データを活用した、あなた専用のトレーニングプログラム。<br>会員制とビジター利用、どちらにも対応。</p>
+      <a href="service-fitness.html" class="view-more white">ジムを見る</a>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <button class="slider-arrow prev" onclick="changeSlide(-1)" aria-label="前のスライド">‹</button>
+  <button class="slider-arrow next" onclick="changeSlide(1)" aria-label="次のスライド">›</button>
+  <div class="slider-controls">
+    <button class="active" onclick="goToSlide(0)" aria-label="1"></button>
+    <button onclick="goToSlide(1)" aria-label="2"></button>
+    <button onclick="goToSlide(2)" aria-label="3"></button>
+  </div>
+</section>
+
+<!-- ===== Events & News (top) ===== -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="topinfo-grid">
+
+      <!-- Event calendar -->
+      <div class="card">
+        <h3><span class="icon">📅</span>イベントカレンダー</h3>
+        <div class="calendar-head">
+          <button onclick="changeMonth(-1)" aria-label="前月">◀</button>
+          <div class="month" id="month-label">2026年 4月</div>
+          <button onclick="changeMonth(1)" aria-label="次月">▶</button>
+        </div>
+        <div class="calendar" id="calendar"></div>
+        <ul class="event-list" id="event-list"></ul>
+      </div>
+
+      <!-- Pickup news -->
+      <div class="card">
+        <h3><span class="icon">📰</span>ピックアップニュース</h3>
+        <div class="pickup-tabs" role="tablist">
+          <button class="pickup-tab active" data-tab="n1">新規開講</button>
+          <button class="pickup-tab" data-tab="n2">認定情報</button>
+          <button class="pickup-tab" data-tab="n3">メディア</button>
+          <button class="pickup-tab" data-tab="n4">イベント</button>
+        </div>
+
+        <div class="pickup-panel active" id="n1">
+          <article>
+            <div class="thumb img-ph">
+              <div class="ph-note">体力測定<small>春のキャンペーン風景写真</small></div>
+            </div>
+            <div>
+              <h4>春の体力測定キャンペーン開始</h4>
+              <div class="meta">2026.04.15 / お知らせ</div>
+              <p>一般の方向けに「スポーツドック（体力解析）」の春キャンペーンを開始しました。全身の体力バランスを見える化します。</p>
+              <a href="news.html" class="more">詳細を見る →</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="pickup-panel" id="n2">
+          <article>
+            <div class="thumb img-ph">
+              <div class="ph-note">認定証<small>認定書授与の写真</small></div>
+            </div>
+            <div>
+              <h4>日本スポーツ協会 認定施設更新</h4>
+              <div class="meta">2026.03.28 / 認定</div>
+              <p>当センターは日本スポーツ協会 公認スポーツ医・科学研究プロジェクト認定施設として更新されました。</p>
+              <a href="news.html" class="more">詳細を見る →</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="pickup-panel" id="n3">
+          <article>
+            <div class="thumb img-ph">
+              <div class="ph-note">取材<small>テレビ取材中の様子</small></div>
+            </div>
+            <div>
+              <h4>テレビ番組「スポ科学の現場」で紹介</h4>
+              <div class="meta">2026.03.10 / メディア</div>
+              <p>全国放送のスポーツ科学番組で当センターの動作解析の取り組みが紹介されました。</p>
+              <a href="news.html" class="more">詳細を見る →</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="pickup-panel" id="n4">
+          <article>
+            <div class="thumb img-ph">
+              <div class="ph-note">親子イベント<small>笑顔の親子写真</small></div>
+            </div>
+            <div>
+              <h4>親子体力測定会 開催決定</h4>
+              <div class="meta">2026.05.05 / イベント</div>
+              <p>GWに親子で参加できる体力測定イベントを開催します。お子様の発育段階に合わせたアドバイスも受けられます。</p>
+              <a href="events.html" class="more">詳細を見る →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Certifications / Activities ===== -->
+<section class="section">
+  <div class="container">
+    <div class="heading-block">
+      <span class="en">CERTIFICATIONS</span>
+      <h2>認定・活動で裏付けられた信頼</h2>
+      <p>公的機関からの認定と、日々の活動で確かな科学的アプローチを提供しています。</p>
+    </div>
+    <div class="cert-grid">
+      <div class="cert">
+        <div class="badge">🏅</div>
+        <h4>日本スポーツ協会</h4>
+        <p>公認スポーツ医・科学研究施設</p>
+      </div>
+      <div class="cert">
+        <div class="badge">🎓</div>
+        <h4>大学研究連携</h4>
+        <p>国内主要大学との共同研究</p>
+      </div>
+      <div class="cert">
+        <div class="badge">⚕️</div>
+        <h4>医療機関提携</h4>
+        <p>整形外科・スポーツ内科連携</p>
+      </div>
+      <div class="cert">
+        <div class="badge">🏢</div>
+        <h4>ISO 認証取得</h4>
+        <p>品質マネジメントシステム</p>
+      </div>
+    </div>
+
+    <div class="heading-block" style="margin-top:72px">
+      <span class="en">ACTIVITIES</span>
+      <h2>最近の活動</h2>
+    </div>
+    <div class="activity-grid">
+      <div class="activity">
+        <div class="act-thumb img-ph">
+          <div class="ph-note">小学校体力測定<small>子どもたちが測定している風景</small></div>
+        </div>
+        <div class="act-body">
+          <div class="date">2026.04.10</div>
+          <h4>地域小学校で体力測定会を実施</h4>
+          <p>近隣小学校120名を対象に、発育段階に合わせた体力測定と運動指導を実施しました。</p>
+        </div>
+      </div>
+      <div class="activity">
+        <div class="act-thumb img-ph">
+          <div class="ph-note">投球フォーム解析<small>プロ野球選手の投球計測中</small></div>
+        </div>
+        <div class="act-body">
+          <div class="date">2026.03.22</div>
+          <h4>プロ野球選手のフォーム解析</h4>
+          <p>動作解析システムを用いて、プロ野球選手の投球フォーム最適化をサポート。</p>
+        </div>
+      </div>
+      <div class="activity">
+        <div class="act-thumb img-ph">
+          <div class="ph-note">セミナー<small>会議室でのセミナー風景</small></div>
+        </div>
+        <div class="act-body">
+          <div class="date">2026.03.05</div>
+          <h4>健康経営セミナー開催</h4>
+          <p>地域企業向けに従業員の健康管理をテーマにしたセミナーを開催しました。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="view-more-wrap"><a href="news.html" class="view-more">VIEW ALL NEWS</a></div>
+  </div>
+</section>
+
+<!-- ===== Service menu 2x2 ===== -->
+<section class="section section-alt" id="services">
+  <div class="container">
+    <div class="heading-block">
+      <span class="en">OUR SERVICES</span>
+      <h2>4つの主力サービス</h2>
+      <p>目的や体力レベルに合わせて、最適なサービスをお選びいただけます。</p>
+    </div>
+
+    <div class="service-grid">
+      <!-- 1. 体力解析 -->
+      <a href="service-body.html" class="service-card">
+        <div class="visual">
+          <span class="tag">測定・解析</span>
+          <div class="img-ph">
+            <div class="ph-note">
+              <strong>体力解析の様子</strong>
+              <small>持久力測定（自転車エルゴメーター）または握力測定中の写真。専門機器が見える縦長/横長どちらでも可。16:10。</small>
+            </div>
+          </div>
+        </div>
+        <div class="body">
+          <h3>体力解析</h3>
+          <div class="subtitle">スポーツドック / 全身の体力を科学的に診断</div>
+          <p>持久力・筋力・柔軟性・バランスなど、全身の体力を総合的に測定。結果レポートと専門スタッフのアドバイスで、次の一歩が見えます。</p>
+          <div class="features">
+            <span>持久力測定</span><span>筋力測定</span><span>柔軟性</span><span>バランス</span>
+          </div>
+          <span class="link">詳細を見る</span>
+        </div>
+      </a>
+
+      <!-- 2. 動作解析 -->
+      <a href="service-motion.html" class="service-card">
+        <div class="visual">
+          <span class="tag">動作解析</span>
+          <div class="img-ph">
+            <div class="ph-note">
+              <strong>3Dモーションキャプチャ</strong>
+              <small>センサー（マーカー）を体に付けたアスリートが動作解析中の写真。複数カメラの設備が見えると専門性UP。16:10。</small>
+            </div>
+          </div>
+        </div>
+        <div class="body">
+          <h3>動作解析</h3>
+          <div class="subtitle">3次元モーションキャプチャで動きを可視化</div>
+          <p>ランニング・投球・ジャンプなどの動作を3次元で計測。フォーム改善や怪我予防、競技パフォーマンス向上につなげます。</p>
+          <div class="features">
+            <span>3Dモーション</span><span>筋力バランス</span><span>フォーム分析</span><span>怪我予防</span>
+          </div>
+          <span class="link">詳細を見る</span>
+        </div>
+      </a>
+
+      <!-- 3. トレーニングジム -->
+      <a href="service-fitness.html" class="service-card">
+        <div class="visual">
+          <span class="tag">トレーニング</span>
+          <div class="img-ph">
+            <div class="ph-note">
+              <strong>トレーニングジム</strong>
+              <small>マシンエリアの全景、またはトレーナーが指導中の写真。明るく清潔感のある雰囲気を重視。16:10。</small>
+            </div>
+          </div>
+        </div>
+        <div class="body">
+          <h3>トレーニングジム</h3>
+          <div class="subtitle">科学的データに基づく個別プログラム</div>
+          <p>測定データをもとに、あなた専用のトレーニングプログラムを作成。専門トレーナーのサポートで効率的に目標達成を目指します。</p>
+          <div class="features">
+            <span>個別プログラム</span><span>専門指導</span><span>都度払い可</span><span>会員制</span>
+          </div>
+          <span class="link">詳細を見る</span>
+        </div>
+      </a>
+
+      <!-- 4. ベースボールラボ -->
+      <a href="service-baseball.html" class="service-card">
+        <div class="visual">
+          <span class="tag">競技特化</span>
+          <div class="img-ph">
+            <div class="ph-note">
+              <strong>ベースボールラボ</strong>
+              <small>投球解析中の選手・トラックマンなど計測機材が映る写真、またはピッチング動作のシーン。16:10。</small>
+            </div>
+          </div>
+        </div>
+        <div class="body">
+          <h3>ベースボールラボ</h3>
+          <div class="subtitle">野球競技に特化した科学トレーニング</div>
+          <p>投球・打撃・走塁の動作を専門機材で解析。野球選手のパフォーマンスを科学的アプローチで引き上げます。</p>
+          <div class="features">
+            <span>投球解析</span><span>打撃解析</span><span>球速アップ</span><span>ジュニア対応</span>
+          </div>
+          <span class="link">詳細を見る</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Feature Visual block ===== -->
+<section class="feature-visual">
+  <div class="img-ph">
+    <div class="ph-note">背景：施設全景<small>センター内の俯瞰写真または競技フィールド全景。21:9のワイド写真がベスト。</small></div>
+  </div>
+  <div class="fv-text">
+    <h2>ARROWS - 計測と訓練、両輪で成果へ</h2>
+    <p>計測・解析の「アローズラボ」と、トレーニングの「アローズジム」。<br>あなたのパフォーマンスを引き上げる2つのブランド。</p>
+    <div style="margin-top:20px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="arrows-lab.html" class="view-more white">ARROWS LAB</a>
+      <a href="arrows-gym.html" class="view-more white">ARROWS GYM</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Arrows block ===== -->
+<section class="section">
+  <div class="container">
+    <div class="heading-block">
+      <span class="en">ARROWS</span>
+      <h2>アローズの2つのブランド</h2>
+    </div>
+    <div class="arrows-grid">
+      <div class="arrows-card lab">
+        <div class="en">ARROWS LAB</div>
+        <h3>アローズラボ</h3>
+        <p>体力解析・動作解析・ベースボールラボなど、計測・解析サービスを集約。科学的アプローチであなたの身体を見える化します。</p>
+        <a href="arrows-lab.html" class="btn">ラボの詳細へ →</a>
+      </div>
+      <div class="arrows-card gym">
+        <div class="en">ARROWS GYM</div>
+        <h3>アローズジム</h3>
+        <p>測定データを活用した個別プログラムと専門指導。会員制とビジター利用どちらにも対応し、目標に合わせたサポートを行います。</p>
+        <a href="arrows-gym.html" class="btn">ジムの詳細へ →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Results / Tie-ups (bottom) ===== -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="heading-block">
+      <span class="en">ACHIEVEMENTS</span>
+      <h2>私たちの実績</h2>
+    </div>
+    <div class="results">
+      <div class="result-item">
+        <div class="num">15<span style="font-size:18px">年</span></div>
+        <div class="label">運営実績</div>
+      </div>
+      <div class="result-item">
+        <div class="num">12,000<span style="font-size:18px">名+</span></div>
+        <div class="label">累計測定者数</div>
+      </div>
+      <div class="result-item">
+        <div class="num">80<span style="font-size:18px">+</span></div>
+        <div class="label">提携スポーツチーム</div>
+      </div>
+      <div class="result-item">
+        <div class="num">97<span style="font-size:18px">%</span></div>
+        <div class="label">利用者満足度</div>
+      </div>
+    </div>
+
+    <div class="heading-block" style="margin-top:64px">
+      <span class="en">PARTNERSHIP</span>
+      <h2>タイアップ・提携先</h2>
+    </div>
+    <div class="partners">
+      <div class="partner logo-ph">プロ野球チーム<br><small>※ロゴ画像</small></div>
+      <div class="partner logo-ph">Jリーグクラブ<br><small>※ロゴ画像</small></div>
+      <div class="partner logo-ph">大学スポーツ<br><small>※ロゴ画像</small></div>
+      <div class="partner logo-ph">医療機関<br><small>※ロゴ画像</small></div>
+      <div class="partner logo-ph">地方自治体<br><small>※ロゴ画像</small></div>
+      <div class="partner logo-ph">教育機関<br><small>※ロゴ画像</small></div>
+      <div class="partner logo-ph">企業健康経営<br><small>※ロゴ画像</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact CTA ===== -->
+<section class="container" style="padding-bottom:64px">
+  <div class="contact-cta">
+    <h2>まずはお気軽にご相談ください</h2>
+    <p>初めての方にも分かりやすくご案内します。見学・体験も随時受付中です。</p>
+    <div class="btns">
+      <a href="contact.html" class="btn btn-white">問い合わせフォーム</a>
+      <a href="tel:0000000000" class="btn btn-outline-white">📞 電話で相談</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-info">
+        <h4>エイジェック スポーツ科学センター</h4>
+        <p>〒000-0000 ○○県○○市○○町 1-2-3</p>
+        <p>TEL 000-000-0000</p>
+        <p>営業 9:00 - 22:00 / 定休日 毎月第3火曜日</p>
+      </div>
+      <div>
+        <h4>サービス</h4>
+        <a href="service-body.html">体力解析</a>
+        <a href="service-motion.html">動作解析</a>
+        <a href="service-fitness.html">トレーニングジム</a>
+        <a href="service-baseball.html">ベースボールラボ</a>
+      </div>
+      <div>
+        <h4>施設</h4>
+        <a href="arrows.html">アローズ</a>
+        <a href="facility.html">施設案内</a>
+        <a href="access.html">アクセス</a>
+        <a href="pricing.html">料金表</a>
+      </div>
+      <div>
+        <h4>情報</h4>
+        <a href="news.html">ニュース</a>
+        <a href="events.html">イベント</a>
+        <a href="contact.html">お問い合わせ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 AGEKKE Sports Science Center. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

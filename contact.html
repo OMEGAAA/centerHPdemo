@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>お問い合わせ | スポーツ科学センター</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo"><span class="logo-mark">SSC</span><span>スポーツ科学センター</span></a>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <nav class="nav" id="nav">
+      <a href="index.html#services">サービス</a>
+      <a href="arrows.html">アローズ</a>
+      <a href="facility.html">施設案内</a>
+      <a href="pricing.html">料金表</a>
+      <a href="access.html">アクセス</a>
+      <a href="news.html">ニュース</a>
+      <a href="contact.html" class="cta">お問い合わせ</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>お問い合わせ・ご予約</h1>
+    <p>最短1ステップでご相談いただけます。お電話・フォームどちらでもどうぞ。</p>
+  </div>
+</section>
+
+<div class="container">
+  <div class="breadcrumb">
+    <a href="index.html">ホーム</a><span>›</span>お問い合わせ
+  </div>
+</div>
+
+<section class="section" style="padding-top:16px">
+  <div class="container">
+
+    <!-- Quick contact -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px" class="quick-contact">
+      <a href="tel:0000000000" class="card" style="text-align:center;text-decoration:none">
+        <div style="font-size:40px">📞</div>
+        <h3 style="justify-content:center">電話で相談</h3>
+        <p class="muted" style="font-size:13px">受付 9:00-22:00</p>
+        <div style="font-size:22px;font-weight:800;color:var(--accent);margin-top:6px">000-000-0000</div>
+      </a>
+      <a href="#form" class="card" style="text-align:center;text-decoration:none">
+        <div style="font-size:40px">✉️</div>
+        <h3 style="justify-content:center">フォームから</h3>
+        <p class="muted" style="font-size:13px">24時間受付</p>
+        <div style="font-size:14px;font-weight:700;color:var(--primary);margin-top:6px">下のフォームへ ↓</div>
+      </a>
+      <a href="access.html" class="card" style="text-align:center;text-decoration:none">
+        <div style="font-size:40px">🏢</div>
+        <h3 style="justify-content:center">直接来館</h3>
+        <p class="muted" style="font-size:13px">見学・体験OK</p>
+        <div style="font-size:14px;font-weight:700;color:var(--primary);margin-top:6px">アクセスを見る →</div>
+      </a>
+    </div>
+
+    <!-- Form -->
+    <form class="contact-form" id="form" onsubmit="return submitForm(event)">
+      <div class="form-row">
+        <label>お問い合わせ内容<span class="required">必須</span></label>
+        <select required>
+          <option value="">選択してください</option>
+          <option>体力解析（スポーツドック）について</option>
+          <option>動作解析について</option>
+          <option>トレーニングジム／ジム都度利用について</option>
+          <option>ベースボールラボについて</option>
+          <option>施設見学・貸出</option>
+          <option>その他のご相談</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label>お名前<span class="required">必須</span></label>
+        <input type="text" required placeholder="例：山田 太郎">
+      </div>
+      <div class="form-row">
+        <label>メールアドレス<span class="required">必須</span></label>
+        <input type="email" required placeholder="例：example@example.com">
+      </div>
+      <div class="form-row">
+        <label>電話番号</label>
+        <input type="tel" placeholder="例：000-0000-0000">
+      </div>
+      <div class="form-row">
+        <label>ご希望連絡方法</label>
+        <select>
+          <option>メール</option>
+          <option>電話</option>
+          <option>どちらでも可</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label>ご質問・ご相談内容</label>
+        <textarea placeholder="ご不明点や希望日時などをご自由にご記入ください"></textarea>
+      </div>
+      <div class="form-submit">
+        <button type="submit" class="btn btn-primary">送信する</button>
+        <p class="muted" style="font-size:12px;margin-top:10px">※ 個人情報は当センターの定めに従い厳重に管理いたします。</p>
+      </div>
+    </form>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-bottom">© 2026 AGEKKE Sports Science Center.</div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+function submitForm(e){
+  e.preventDefault();
+  alert('お問い合わせを受け付けました。担当者より折り返しご連絡いたします。');
+  e.target.reset();
+  return false;
+}
+</script>
+</body>
+</html>
